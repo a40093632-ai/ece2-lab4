@@ -14,3 +14,9 @@ mx.scratch
 *.fls
 *.fdb_latexmk
 *.xdv
+
+# XSim generated files
+**/xsim.dir/
+*.jou
+*.pb
+*.wdb
