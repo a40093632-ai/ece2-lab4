@@ -82,7 +82,7 @@ void polling_routine(void)
     if (now_ms - last_led_ms >= interval_ms)
     {
         last_led_ms = now_ms;
-        HAL_GPIO_TogglePin(LED_ece2_GPIO_Port, LED_ece2_Pin);
+        HAL_GPIO_TogglePin(GPIO_OUT1_ece2_GPIO_Port, GPIO_OUT1_ece2_Pin);
     }
 }
 
