@@ -51,20 +51,39 @@ void ece2_474_init(void)
 /* 메인 루프에서 반복해서 호출됩니다. */
 void polling_routine(void)
 {
-    static GPIO_PinState previous = GPIO_PIN_RESET;
+    static uint32_t last_led_ms = 0;
     static uint32_t last_press_ms = 0;
+    static uint32_t interval_ms = 1000U;
+    static GPIO_PinState previous = GPIO_PIN_RESET;
+
+    uint32_t now_ms = HAL_GetTick();
     GPIO_PinState current =
         HAL_GPIO_ReadPin(BUTTON_ece2_GPIO_Port, BUTTON_ece2_Pin);
-    uint32_t now_ms = HAL_GetTick();
 
     if (current == GPIO_PIN_SET && previous == GPIO_PIN_RESET
         && now_ms - last_press_ms >= 200U)
     {
         last_press_ms = now_ms;
-        HAL_GPIO_TogglePin(LED_ece2_GPIO_Port, LED_ece2_Pin);
+
+        if (interval_ms >= 8000U)
+        {
+            interval_ms = 1000U;
+        }
+        else
+        {
+            interval_ms *= 2U;
+        }
+
+        last_led_ms = now_ms;
     }
 
     previous = current;
+
+    if (now_ms - last_led_ms >= interval_ms)
+    {
+        last_led_ms = now_ms;
+        HAL_GPIO_TogglePin(LED_ece2_GPIO_Port, LED_ece2_Pin);
+    }
 }
 
 /* 1. 사용자 버튼 PC13을 눌렀을 때 호출됩니다. 우선순위: 7.
