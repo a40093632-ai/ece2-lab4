@@ -1,3 +1,25 @@
+# 전자전기컴퓨터설계실험II Lab4 · 10/12 실험 결과
+
+이 저장소의 아래 실험 결과는 STM32 과제1·2와 FPGA 개별 실습1·2의
+설계, 시뮬레이션 및 보드 시연 기록이다. 이어지는 「STM32 기초 실습」은
+조교가 제공한 4주 공통 안내이다.
+
+| 항목 | 자료 |
+|---|---|
+| 실험 전 보고서 | [PDF](reports/pre/LAB4_실험전보고서_2023440129_조성현.pdf) |
+| 실험 후 보고서 | [PDF](reports/post/LAB4_실험후보고서_2023440129_조성현.pdf) |
+| STM32 과제1 | [당시 코드](https://github.com/a40093632-ai/ece2-lab4/blob/16bf732/Core/Src/ece2_474_routine.c) · [시연 자료](evidence/stm32/assignment1/) |
+| STM32 과제2 | [최종 코드](Core/Src/ece2_474_routine.c) · [시연 자료](evidence/stm32/assignment2/) |
+| STM32 Serial Monitor | [출력 캡처](evidence/stm32/debug/) |
+| FPGA 실습1 · 4비트 곱셈기 | [설계·TB·XDC](fpga/mult_4bit/) · [검증·시연 자료](evidence/fpga/mult_4bit/) · [Bitstream](artifacts/bit/lab4_mult_4bit.bit) |
+| FPGA 실습2 · BCD 변환기 | [설계·TB·XDC](fpga/bcd_conv/) · [검증·시연 자료](evidence/fpga/bcd_conv/) · [Bitstream](artifacts/bit/lab4_bcd_conv.bit) |
+
+STM32 과제2는 과제1의 LED 출력을 PA5에서 PB0으로 변경한 코드이므로,
+현재 `ece2_474_routine.c`에는 과제2가 남아 있다. 과제1 코드는 위의
+「당시 코드」 링크에서 확인할 수 있다.
+
+---
+
 # STM32 기초 실습
 
 **실습 보드: NUCLEO-G474RE**
